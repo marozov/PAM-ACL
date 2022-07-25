@@ -63,18 +63,18 @@ session    include      postlogin
 -session   optional     pam_ck_connector.so
 ```
 
-Далее заходим в файл nano /etc/security/time.conf и добавляем в конце файла строку *;*;test_user;!Tu
+Далее заходим в файл nano /etc/security/time.conf и добавляем в конце файла строку *;*;docker;!Tu
 
-Создаем пользователя командой useradd test_user и задаем ему пароль passwd test_user
-Пытаемся зайти в тот день, когда у нас работает правило ssh test_user@localhost и получаем:
+Создаем пользователя командой useradd test_user и задаем ему пароль passwd docker
+Пытаемся зайти в тот день, когда у нас работает правило ssh docker@localhost и получаем:
 ```
-ssh test_user@localhost
-test_user@localhost's password:
+ssh docker@localhost
+docker@localhost's password:
 Authentication failed.
 ```
 Второй способ это ограничения по группе.
 Создаем группу groupadd admin
-Добавляем туда пользователя usermod -aG admin test_user
+Добавляем туда пользователя usermod -aG admin docker
 Устанавливаем компонент, с помощью которого мы сможем описывать правила входа в виде обычного bash скрипта yum install pam_script -y
 Можем посмотреть какие файлы использует этот компонент rpm -ql pam_script
 
