@@ -65,7 +65,7 @@ session    include      postlogin
 
 Далее заходим в файл nano /etc/security/time.conf и добавляем в конце файла строку *;*;docker;!Tu
 
-Создаем пользователя командой useradd test_user и задаем ему пароль passwd docker
+Создаем пользователя командой useradd docker и задаем ему пароль passwd docker
 Пытаемся зайти в тот день, когда у нас работает правило ssh docker@localhost и получаем:
 ```
 ssh docker@localhost
